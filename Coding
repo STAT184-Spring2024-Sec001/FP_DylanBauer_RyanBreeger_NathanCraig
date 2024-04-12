@@ -1,1 +1,22 @@
 This is for coding
+#Data Access
+(1) Primary data table may NOT be loaded from an R package--though supporting data may.
+(2) Access to all data is contained within the analysis. (Each data source must be included in the provided GitHub Repo & properly accessed in the Rmd (e.g., read_csv() or other means)
+(3) Data intake is inspected properly at beginning of analysis -- e.g. use at least one of str(), glimpse(), head(), etc.
+
+#This criterion is linked to a Learning OutcomeData Wrangling / Processing / etc
+Students need not use every function and method introduced in STAT 184, but clear demonstration of proficiency should include proper use of at least 3 of these 5 topics from class:
+
+(1) general data wrangling using various data verbs like filter, mutate, summarise, arrange, group_by, etc.
+(2) reduction and/or transformation functions like mean, sum, max, min, n(), rank, pmin, etc.
+(3) pivot_wider & pivot_longer --or similar function to stack/unstack variables
+(4) regular expressions
+(5) user-defined functions
+
+#This criterion is linked to a Learning OutcomeData Visualization
+Students need not use every function and method introduced in STAT 184, but clear demonstration of proficiency should include data visualizations that
+(*1*) are relevant to stated research question for the analysis,
+(*2*) appear professional by including titles, axis labels, guides, etc
+(*3*) include at least one effective display of two or more variables,
+(*4*) use of multiple geoms such as points, density, lines, boxplots, etc,
+(*5*) use of multiple aesthetics--not necessarily all in the same graph--such as color, size, shape, x/y position, facets, alpha, etc
