@@ -1,0 +1,150 @@
+---
+title: "Final Project"
+author: "Dylan Bauer"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+
+```
+
+```{r}
+x5data <- read.csv("C:/Users/bauer/Downloads/fp_carX5.csv")
+view(x5data)
+
+x3data <- read.csv("C:/Users/bauer/Downloads/fp_carX3csv.csv")
+view(x3data)
+```
+
+```{r}
+filtered_datax5 <- x5data %>%
+  filter(year == 2021)
+view(filtered_datax5)
+
+filtered_datax3 <- x3data %>%
+  filter(year == 2021)
+view(filtered_datax3)
+```
+
+
+```{r}
+## esquisser(data = "filtered_datax3", view = "browser") for graph
+
+ggplot(filtered_datax3) +
+  aes(x = mileage, y = price) +
+  geom_point(shape = "circle", size = 1.5, colour = "#112446") +
+  geom_smooth(span = 0.67) +
+  theme_minimal()
+```
+
+
+```{r}
+## esquisser(data = "filtered_datax5", view = "browser") for graph
+ggplot(filtered_datax5) +
+  aes(x = mileage, y = price) +
+  geom_point(shape = "circle", size = 1.5, colour = "#112446") +
+  geom_smooth(span = 0.75) +
+  theme_minimal()
+```
+
+```{r}
+# Summary table with price and mileage statistics
+summary_table_price <- filtered_datax3 %>%
+  summarise(
+    count = n(),
+    min = min(price),
+    Q1 = quantile(price, probs = 0.25),
+    median = median(price),
+    Q3 = quantile(price, probs = 0.75),
+    max = max(price),
+    mean = mean(price),
+    sd = sd(price)
+  )
+
+# Convert summary table to kable format
+summary_table_kable_price <- kable(summary_table_price, "html") %>%
+  kable_styling()
+
+# Print the summary table
+(summary_table_kable_price)
+
+```
+
+
+```{r}
+# Create summary table for mileage
+summary_tablex3mile <- filtered_datax3 %>%
+  summarise(
+    count = n(),
+    min = min(mileage),
+    Q1 = quantile(mileage, probs = 0.25),
+    median = median(mileage),
+    Q3 = quantile(mileage, probs = 0.75),
+    max = max(mileage),
+    mean = mean(mileage),
+    sd = sd(mileage)
+  )
+
+# Convert summary table to kable format
+summary_table_kablemile <- kable(summary_tablex3mile, "html") %>%
+  kable_styling()
+
+summary_table_kablemile
+```
+
+
+```{r}
+# Summary table with price statistics
+summary_table_pricex5 <- filtered_datax5 %>%
+  summarise(
+    count = n(),
+    min = min(price),
+    Q1 = quantile(price, probs = 0.25),
+    median = median(price),
+    Q3 = quantile(price, probs = 0.75),
+    max = max(price),
+    mean = mean(price),
+    sd = sd(price)
+  )
+
+# Convert summary table to kable format
+summary_table_kable_pricex5 <- kable(summary_table_pricex5, "html") %>%
+  kable_styling()
+
+# Print the summary table
+summary_table_kable_pricex5
+```
+
+```{r}
+# Create summary table for mileage
+summary_tablex5mile <- filtered_datax5 %>%
+  summarise(
+    count = n(),
+    min = min(mileage),
+    Q1 = quantile(mileage, probs = 0.25),
+    median = median(mileage),
+    Q3 = quantile(mileage, probs = 0.75),
+    max = max(mileage),
+    mean = mean(mileage),
+    sd = sd(mileage)
+  )
+
+# Convert summary table to kable format
+summary_table_kablemilex5 <- kable(summary_tablex5mile, "html") %>%
+  kable_styling()
+
+summary_table_kablemilex5
+```
+```
+
+
+
+
+
+
+
+
