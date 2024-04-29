@@ -52,6 +52,7 @@ ggplot(filtered_datax3) +
   theme_minimal()
 ```
 
+Again, here we have the graph that shows the price vs mileage of the BMW x5. As shown, the graph shows that there is a negative correlation between how many miles a car has when it is sold and the price that it is actually sold for. 
 
 ```{r}
 ## esquisser(data = "filtered_datax5", view = "browser") for graph
@@ -61,6 +62,7 @@ ggplot(filtered_datax5) +
   geom_smooth(span = 0.75) +
   theme_minimal()
 ```
+This is the filtered data for the x3 price shown as summary stats. We used the summarize function and found the count, minimum, first quantile, median, third quantile, max, mean, and standard deviation to compare. 
 
 ```{r}
 # Summary table with price and mileage statistics
@@ -84,6 +86,7 @@ summary_table_kable_price <- kable(summary_table_price, "html") %>%
 (summary_table_kable_price)
 
 ```
+This is the filtered data for the x3 miles shown as summary stats. We used the summarize function and found the count, minimum, first quantile, median, third quantile, max, mean, and standard deviation to compare. 
 
 
 ```{r}
@@ -106,6 +109,7 @@ summary_table_kablemile <- kable(summary_tablex3mile, "html") %>%
 
 summary_table_kablemile
 ```
+This is the filtered data for the x5 price shown as summary stats. We used the summarize function and found the count, minimum, first quantile, median, third quantile, max, mean, and standard deviation to compare. 
 
 
 ```{r}
@@ -129,6 +133,7 @@ summary_table_kable_pricex5 <- kable(summary_table_pricex5, "html") %>%
 # Print the summary table
 summary_table_kable_pricex5
 ```
+This is the filtered data for the x5 miles shown as summary stats. We used the summarize function and found the count, minimum, first quantile, median, third quantile, max, mean, and standard deviation to compare. 
 
 ```{r}
 # Create summary table for mileage
@@ -150,6 +155,8 @@ summary_table_kablemilex5 <- kable(summary_tablex5mile, "html") %>%
 
 summary_table_kablemilex5
 
+For our final graphs, we wanted to look at which price had the most amount of cars. We made bar graphs going by tens of thousands to see which areas had more amount of cars. We did this for both the x3 and x5. As seen on the graphs below, the majority of the x3 prices are way lower and concentrated in the 30 thousand range while the x5 prices are concentrated in the 40 thousand range. 
+
 # merged the data and made a bar graph with price on x and amount on the y for both cars. 
 merged <- inner_join(filtered_datax5, filtered_datax3, by = "year")
 merged
@@ -167,8 +174,13 @@ ggplot(merged) +
   labs(x = "Prices of BMW X5", y = "Amount") +
   theme_minimal()
 ```
-```
 
+## **Conclusions** 
+
+As we began looking at the data and comparing, we saw an inverse correlation in price vs. mileage for both cars. 
+This mean the more mileage a car has, the lower the price of the car is going to be. We also saw that the mean price for the BMW X3 was cheaper than the mean price for the BMW X5. We saw this in the bar chart along with the summary stats table. However, the BMW X5 had a higher mean mileage than the X3, which could mean they are more reliable, since their are more with higher mileage than the x3. This could mean they are in better condition than the x3, but costs more. 
+
+Overall conclusion: Their are many factors that go into buying a car; price, mileage, color, make, model, etc.. We chose to look at two of the most important factors and compare them in one make but separate model. We used the same city and same year to avoid problems with the data set. Our final conclusion was the BMW x5 was more expensive than the x3 but did have a higher mileage than the x3 as well. In all, the consumer chooses what car they want, but if you want a cheaper car, go with the x3, and if you want a longer lasting car thats a little more expensive, go with the
 
 
 
