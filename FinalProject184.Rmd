@@ -149,6 +149,23 @@ summary_table_kablemilex5 <- kable(summary_tablex5mile, "html") %>%
   kable_styling()
 
 summary_table_kablemilex5
+
+# merged the data and made a bar graph with price on x and amount on the y for both cars. 
+merged <- inner_join(filtered_datax5, filtered_datax3, by = "year")
+merged
+## esquisser(data = "merged", view = "browser") used for graph
+
+ggplot(merged) +
+  aes(x = price.y) +
+  geom_histogram(bins = 30L, fill = "#112446") +
+  labs(x = "Prices of BMW X3", y = "Amount") +
+  theme_minimal()
+
+ggplot(merged) +
+  aes(x = price.x) +
+  geom_histogram(bins = 30L, fill = "#112446") +
+  labs(x = "Prices of BMW X5", y = "Amount") +
+  theme_minimal()
 ```
 ```
 
