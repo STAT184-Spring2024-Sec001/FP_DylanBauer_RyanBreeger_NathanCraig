@@ -4,7 +4,14 @@ author: "Dylan Bauer"
 date: "`r Sys.Date()`"
 output: html_document
 ---
+**Introduction**
+Our research questions:
+1) How much does mileage affect the price of a used car?
+2) Do different types of cars sell for more over time than others?
+For our final project, we wanted to compare how mileage and different car types affected the price for the sale of used cars. It is known that there is a lot of fluctuation within data for car prices, and this has a lot to do with the quality of the engine and how the car holds up over time. 
 
+
+Here are the following imports that are used for the project. knitr is a package that is used to load default chunks into rmd files. ggplot2 is another very useful package, as code within the package allows us to create data visualizations, which better help people to see how mileage and car type affect the price of used vehicles. dplyr is another package that makes data wrangling and filtering data much easier and doable.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
@@ -12,6 +19,8 @@ library(dplyr)
 
 ```
 
+**Raw Data and Data Wrangling**
+These are the datasets that we will wrangle and use for our data visualizations and graphs. Data was collected from a database called Auto Trader. The attributes in the data set were year, price, and mileage. There were multiple different data sets, each representing a different type of car. The first table shows the data for the BMW x5, and the second table is the data for the BMW x3. We wanted to choose cars from the same company that were relatively similar to compare so that we could eliminate other factors and that we would not have any illusory correlations due to unaccounted factors or variables. The main attributes we wanted to focus on were the price of the car and its mileage.
 ```{r}
 x5data <- read.csv("C:/Users/bauer/Downloads/fp_carX5.csv")
 view(x5data)
@@ -20,6 +29,7 @@ x3data <- read.csv("C:/Users/bauer/Downloads/fp_carX3csv.csv")
 view(x3data)
 ```
 
+In order to filter the data, we began by only selectingcars for both the x3 and the x5 from the year 2021. This way, we eliminate even more variables that could skew the data, like inflation. Another reason why we chose 2021 is that we did not want data from COVID, because during COVID the prices of both new and used cars skyrocketed due to a low supply and high demand in the market. After wrangling and filtering the data, you can see that we are left with more structured data that will soon be used for our visualizations
 ```{r}
 filtered_datax5 <- x5data %>%
   filter(year == 2021)
@@ -30,7 +40,8 @@ filtered_datax3 <- x3data %>%
 view(filtered_datax3)
 ```
 
-
+**Visualizations**
+Here we have a graph that shows a line graph for the price vs mileage of the BMW x3. As shown, the graph shows that there is a negative correlation between how many miles a car has when it is sold and the price that it is actually sold for 
 ```{r}
 ## esquisser(data = "filtered_datax3", view = "browser") for graph
 
