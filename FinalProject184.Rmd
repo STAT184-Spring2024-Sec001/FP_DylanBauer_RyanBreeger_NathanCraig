@@ -154,9 +154,9 @@ summary_table_kablemilex5 <- kable(summary_tablex5mile, "html") %>%
   kable_styling()
 
 summary_table_kablemilex5
-
+```
 For our final graphs, we wanted to look at which price had the most amount of cars. We made bar graphs going by tens of thousands to see which areas had more amount of cars. We did this for both the x3 and x5. As seen on the graphs below, the majority of the x3 prices are way lower and concentrated in the 30 thousand range while the x5 prices are concentrated in the 40 thousand range. 
-
+```
 # merged the data and made a bar graph with price on x and amount on the y for both cars. 
 merged <- inner_join(filtered_datax5, filtered_datax3, by = "year")
 merged
